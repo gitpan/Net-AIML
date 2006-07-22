@@ -1,0 +1,14 @@
+.cvsignore
+.releaserc
+Build.PL
+Changes
+examples/poe.pl
+examples/simple.pl
+lib/Net/AIML.pm
+Makefile.PL
+MANIFEST
+META.yml			# Will be created by "make dist"
+README
+t/00.load.t
+t/pod-coverage.t
+t/pod.t
