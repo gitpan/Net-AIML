@@ -1,5 +1,4 @@
 #!/usr/bin/perl
-use lib qw(trunk/Bender/lib);
 use Net::AIML;
 use POE::Component::Generic;
 use IO::Prompt;
@@ -8,7 +7,7 @@ use POE;
 my $bot = POE::Component::Generic->spawn(
     package        => 'Net::AIML',
 	alias 		   => 'net-aiml',
-    object_options => [ botid => a84468c2ae36697b ],
+    object_options => [ botid => a84468c2ae36697b ], # gir
     debug          => 0,
     verbose        => 1,
 );

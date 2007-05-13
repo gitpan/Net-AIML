@@ -1,17 +1,19 @@
-use strict;
-use warnings;
-use ExtUtils::MakeMaker;
+# Load the Module::Install bundled in ./inc/
+use inc::Module::Install;
 
-WriteMakefile(
-    NAME                => 'Net::AIML',
-    AUTHOR              => 'Chris Prather <cpan@prather.org>',
-    VERSION_FROM        => 'lib/Net/AIML.pm',
-    ABSTRACT_FROM       => 'lib/Net/AIML.pm',
-    PL_FILES            => {},
-    PREREQ_PM => {
-        'Test::More' => 0,
-        'version'    => 0,
-    },
-    dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
-    clean               => { FILES => 'Net-AIML-*' },
-);
+# Define metadata
+name 'Net-AIML';
+all_from 'lib/Net/AIML.pm';
+
+# Specific dependencies
+requires 'HTTP::Request::Common' => '1.26';
+requires 'LWP::Simple'           => '1.41';
+requires 'LWP::UserAgent'        => '2.033';
+requires 'XML::Smart'            => '1.006009';
+
+build_requires 'Test::More' => '0.42';
+
+no_index 'directory' => 'examples';
+
+auto_install;
+WriteAll;

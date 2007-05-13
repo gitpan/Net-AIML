@@ -1,8 +1,9 @@
 package Net::AIML;
-use version; $VERSION = qv('0.0.1');
-use warnings;
 use strict;
-use Carp;
+use warnings;
+
+our $VERSION = '0.0.2';
+
 
 use HTTP::Request::Common qw(POST);
 use LWP::Simple;
@@ -24,15 +25,16 @@ sub tell {
       [ botid => $self->{botid}, custid => $custid, input => $input ];
     my $res = $ua->request($req);
     if ( ! $res->is_success ) { return "sorry, I'm having connection problems"; }
-    my $xs    = XML::Smart->new( $res->content );    # or whatever
+    my $xs    = XML::Smart->new( $res->content );    # or whatever    
     my $error = qq[$xs->{result}{status}];
-    if ($error) { return; }
+    if ($error) { warn $error; return; }
     return wantarray
       ? ( qq[$xs->{result}{that}], qq[$xs->{result}{custid}] )
       : qq[$xs->{result}{that}];
 }
 
-
+1;
+__END__
 
 1; # Magic true value required at end of module
 __END__
@@ -43,7 +45,7 @@ Net::AIML - Perl interface to the Pandorabots.com AIML server
 
 =head1 VERSION
 
-This document describes Net::AIML version 0.0.1
+Version 0.0.2
 
 =head1 SYNOPSIS
 
@@ -146,3 +148,4 @@ RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A
 FAILURE OF THE SOFTWARE TO OPERATE WITH ANY OTHER SOFTWARE), EVEN IF
 SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF
 SUCH DAMAGES.
+
