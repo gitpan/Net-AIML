@@ -18,7 +18,7 @@
 #     NO_META => q[1]
 #     PL_FILES => {  }
 #     PREREQ_PM => { Test::More=>q[0], XML::Smart=>q[1.006009], LWP::UserAgent=>q[2.033], Test::Compile=>q[0], LWP::Simple=>q[1.41], UNIVERSAL::require=>q[0], HTTP::Request::Common=>q[1.26] }
-#     VERSION => q[0.0.4]
+#     VERSION => q[0.0.5]
 #     dist => { PREOP=>q[$(PERL) -I. "-MModule::Install::Admin" -e "dist_preop(q($(DISTVNAME)))"] }
 #     realclean => { FILES=>q[t/000_standard__compile.t t/000_standard__pod.t t/000_standard__pod_coverage.t t/000_standard__perl_critic.t] }
 #     test => { TESTS=>q[t/00.load.t t/000_standard__compile.t t/000_standard__perl_critic.t t/000_standard__pod.t t/000_standard__pod_coverage.t] }
@@ -61,11 +61,11 @@ DIRFILESEP = /
 DFSEP = $(DIRFILESEP)
 NAME = Net::AIML
 NAME_SYM = Net_AIML
-VERSION = 0.0.4
+VERSION = 0.0.5
 VERSION_MACRO = VERSION
-VERSION_SYM = 0_0_4
+VERSION_SYM = 0_0_5
 DEFINE_VERSION = -D$(VERSION_MACRO)=\"$(VERSION)\"
-XS_VERSION = 0.0.4
+XS_VERSION = 0.0.5
 XS_VERSION_MACRO = XS_VERSION
 XS_DEFINE_VERSION = -D$(XS_VERSION_MACRO)=\"$(XS_VERSION)\"
 INST_ARCHLIB = blib/arch
@@ -256,7 +256,7 @@ RCS_LABEL = rcs -Nv$(VERSION_SYM): -q
 DIST_CP = best
 DIST_DEFAULT = tardist
 DISTNAME = Net-AIML
-DISTVNAME = Net-AIML-0.0.4
+DISTVNAME = Net-AIML-0.0.5
 
 
 # --- MakeMaker macro section:
@@ -766,7 +766,7 @@ testdb_static :: testdb_dynamic
 # --- MakeMaker ppd section:
 # Creates a PPD (Perl Package Description) for a binary distribution.
 ppd:
-	$(NOECHO) $(ECHO) '<SOFTPKG NAME="$(DISTNAME)" VERSION="0,0,4,0">' > $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '<SOFTPKG NAME="$(DISTNAME)" VERSION="0,0,5,0">' > $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <TITLE>$(DISTNAME)</TITLE>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <ABSTRACT>Perl interface to the Pandorabots.com AIML server</ABSTRACT>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <AUTHOR>Chris Prather  C&lt;&lt; &lt;cpan@prather.org&gt; &gt;&gt;</AUTHOR>' >> $(DISTNAME).ppd

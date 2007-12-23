@@ -23,4 +23,4 @@ requires:
   LWP::Simple: 1.41
   LWP::UserAgent: 2.033
   XML::Smart: 1.006009
-version: 0.0.4
+version: 0.0.5
